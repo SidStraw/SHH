@@ -20,7 +20,7 @@
       }
 
       .linear {
-        background: url('./img/02.svg') center bottom no-repeat,
+        background: url('./img/new/01.svg') center bottom no-repeat,
           linear-gradient(180deg, #9cc1d1, #a8cddb, #d9f4f0, #edfbf9);
         background-size: contain;
       }
@@ -103,7 +103,7 @@
         </div>
         <!-- 溫度 -->
         <div id="half">
-            <div>{{water}}</div>
+            <div style="letter-spacing: -1px;">{{half}}</div>
           </div>
       </div>
     </div>
@@ -120,6 +120,7 @@
         el: '#root',
         data: {
           water: `${50} %`,
+          half: `${30} °C`,
           message: '這是資料1',
           bg: `background: url('./img/full.svg') center bottom no-repeat,
             linear-gradient(180deg, #9cc1d1, #a8cddb, #d9f4f0, #edfbf9);};`,
