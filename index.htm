@@ -20,8 +20,9 @@
       }
 
       .linear {
-        background: url('./img/new/01.svg') center bottom no-repeat,
-          linear-gradient(180deg, #9cc1d1, #a8cddb, #d9f4f0, #edfbf9);
+        background: url('./img/new/03.svg') center bottom no-repeat,
+          linear-gradient(180deg, #0C0E36, #0C1743, #284289, #3455b1);
+          /* linear-gradient(180deg, #9cc1d1, #a8cddb, #d9f4f0, #edfbf9); */
         background-size: contain;
       }
 
@@ -30,20 +31,21 @@
       }
 
       #sun {
-        background: url('./img/sun.svg') no-repeat;
+        background: url(./img/sun.svg) no-repeat;
         background-size: contain;
         background-position-x: -16px;
-        height: 9rem;
-        padding: 0 24%;
+        height: 100px;
+        padding-left: 62px;
+        padding-right: 90px;
         display: flex;
         align-items: center;
         position: relative;
-        top: 10%;
+        top: 8%;
       }
 
       #sun .progress {
         flex: 1;
-        height: 0.5rem;
+        height: 6px;
       }
 
       #water {
@@ -53,7 +55,7 @@
         position: relative;
         top: 7%;
         right: 0;
-        height: 5rem;
+        height: 60px;
       }
 
       #half {
@@ -63,17 +65,18 @@
         position: relative;
         top: 11%;
         right: 0;
-        height: 5rem;
+        height: 60px;
       }
 
-      #water div, #half div {
-        position:absolute;
+      #water div,
+      #half div {
+        position: absolute;
         height: 100%;
         right: 5%;
-        line-height: 5rem;
+        line-height: 60px;
         font-size: 1.7rem;
         font-weight: bold;
-        color: #7C8597;
+        color: #7c8597;
       }
     </style>
   </head>
@@ -99,12 +102,12 @@
         </div>
         <!-- 水量 -->
         <div id="water">
-          <div>{{water}}</div>
+          <div>{{ water }}</div>
         </div>
         <!-- 溫度 -->
         <div id="half">
-            <div style="letter-spacing: -1px;">{{half}}</div>
-          </div>
+          <div style="letter-spacing: -1px;">{{ half }}</div>
+        </div>
       </div>
     </div>
 
