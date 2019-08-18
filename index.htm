@@ -9,12 +9,17 @@
     <link rel="stylesheet" href="./lib/bootstrap.min.css">
 
     <title>Hello, world!</title>
+    <style>
+      .linear {
+        background: linear-gradient(180deg, #9CC1D1, #A8CDDB, #D9F4F0);
+      }
+    </style>
   </head>
   <body>
-    <div id="root">
-      {{message}}
+    <div id="root" class="d-flex flex-column" style="height: 100vh">
+      <div class="linear flex-grow-1">{{message}}</div>
+      <div class="base flex-grow-0" sty></div>
     </div>
-    <div id="message"></div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="./lib/jquery-3.3.1.slim.min.js"></script>
@@ -31,8 +36,7 @@
       },
       mounted() {
         window.addEventListener('message', e => {
-          this.message = JSON.parse(e.data.content || '{}');
-          document.getElementById('message').innerText = e.data.content;
+          this.message += JSON.stringify(e.data);
         }, false);
       },
     })
