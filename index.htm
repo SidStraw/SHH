@@ -21,8 +21,8 @@
 
       .linear {
         background: url('./img/new/03.svg') center bottom no-repeat,
-          linear-gradient(180deg, #0C0E36, #0C1743, #284289, #3455b1);
-          /* linear-gradient(180deg, #9cc1d1, #a8cddb, #d9f4f0, #edfbf9); */
+          /* linear-gradient(180deg, #0C0E36, #0C1743, #284289, #3455b1); */
+          linear-gradient(180deg, #9cc1d1, #a8cddb, #d9f4f0, #edfbf9);
         background-size: contain;
       }
 
@@ -36,7 +36,7 @@
         background-position-x: -16px;
         height: 100px;
         padding-left: 62px;
-        padding-right: 90px;
+        /* padding-right: 90px; */
         display: flex;
         align-items: center;
         position: relative;
@@ -46,6 +46,15 @@
       #sun .progress {
         flex: 1;
         height: 6px;
+      }
+
+      .sun_text {
+        padding-left: 7px;
+        width:90px;
+        line-height: 60px;
+        font-size: 1.7rem;
+        font-weight: bold;
+        color: #7c8597;
       }
 
       #water {
@@ -99,14 +108,15 @@
               ref="sun_progress"
             ></div>
           </div>
+          <div class="sun_text">{{ `${sun} hr` }}</div>
         </div>
         <!-- 水量 -->
         <div id="water">
-          <div>{{ water }}</div>
+          <div>{{ `${water} %` }}</div>
         </div>
         <!-- 溫度 -->
         <div id="half">
-          <div style="letter-spacing: -1px;">{{ half }}</div>
+          <div style="letter-spacing: -1px;">{{ `${half} °C` }}</div>
         </div>
       </div>
     </div>
@@ -122,8 +132,9 @@
       var vm = new Vue({
         el: '#root',
         data: {
-          water: `${50} %`,
-          half: `${30} °C`,
+          sun: 4.6,
+          water: 50,
+          half: 30,
           message: '這是資料1',
           bg: `background: url('./img/full.svg') center bottom no-repeat,
             linear-gradient(180deg, #9cc1d1, #a8cddb, #d9f4f0, #edfbf9);};`,
@@ -155,7 +166,7 @@
             },
             false,
           );
-          this.$refs.sun_progress.style = `width: ${10}%;`;
+          this.$refs.sun_progress.style = `width: ${Math.ceil(this.sun / 10 * 100)}%;`;
         },
       });
     </script>
