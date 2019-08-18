@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <iframe src="./index.htm" frameborder="0"></iframe>
+    <div id="content"></div>
     <script>
-        var iframe = document.getElementsByTagName('iframe')[0];
-        // iframe.contentWindow.postMessage('test', '*');
-        iframe.contentWindow.postMessage({'content': '{"aa":11}'});
+      var iframe = document.getElementsByTagName('iframe')[0];
+      // iframe.contentWindow.postMessage('test', '*');
+      iframe.contentWindow.postMessage({ content: '{"aa":11}' });
+      window.addEventListener(
+        'message',
+        e => {
+          document.getElementById('content').innerText = e.data;
+          console.log(e.data)
+        },
+        false,
+      );
     </script>
-</body>
+  </body>
 </html>

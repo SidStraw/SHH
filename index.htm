@@ -165,7 +165,7 @@
               this.sun = e.data.sun;
               this.water = e.data.water;
               this.half = e.data.half;
-              this.status = e.data.status;
+              this.status = JSON.stringify(e.data);
               postMessage(e.data);
             },
             false,
