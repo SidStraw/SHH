@@ -120,7 +120,7 @@
         </div>
       </div>
     </div>
-
+    <div id="test_text"></div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="./lib/jquery-3.3.1.slim.min.js"></script>
@@ -165,7 +165,8 @@
               this.sun = e.data.sun;
               this.water = e.data.water;
               this.half = e.data.half;
-              this.status = JSON.stringify(e.data);
+              this.status = '物件：' + JSON.stringify(e.data);
+              document.getElementById('test_text').innerText = '物件：' + JSON.stringify(e.data);
               postMessage(e.data);
             },
             false,
