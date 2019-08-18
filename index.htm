@@ -135,7 +135,7 @@
           sun: 4.6,
           water: 50,
           half: 30,
-          message: '這是資料1',
+          status: 0,
           bg: `background: url('./img/full.svg') center bottom no-repeat,
             linear-gradient(180deg, #9cc1d1, #a8cddb, #d9f4f0, #edfbf9);};`,
         },
@@ -162,7 +162,9 @@
           window.addEventListener(
             'message',
             e => {
-              this.message += JSON.stringify(e.data);
+              this.sun = e.data.sun;
+              this.water = e.data.water;
+              this.half = e.data.half;
             },
             false,
           );
