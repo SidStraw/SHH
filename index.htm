@@ -92,7 +92,7 @@
   <body>
     <div id="root" class="overflow-hidden" style="height: 100vh" @click="zoomIn()">
       <div class="overflow-hidden linear" style="height: 100vh" ref="msg" @click="zoomIn()">
-        {{message}}
+        {{status}}
       </div>
       <div class="p-absolute" style="top: 0;bottom: 0;left: 0;right: 0">
         <!-- 太陽 -->
@@ -165,6 +165,7 @@
               this.sun = e.data.sun;
               this.water = e.data.water;
               this.half = e.data.half;
+              this.status = e.data.status;
             },
             false,
           );
