@@ -20,7 +20,7 @@
       }
 
       .linear {
-        background: url('./img/new/03.svg') center bottom no-repeat,
+        background: url('./img/new/01.svg') center bottom no-repeat,
           /* linear-gradient(180deg, #0C0E36, #0C1743, #284289, #3455b1); */
           linear-gradient(180deg, #9cc1d1, #a8cddb, #d9f4f0, #edfbf9);
         background-size: contain;
@@ -87,14 +87,19 @@
         font-weight: bold;
         color: #7c8597;
       }
+
+      #kettle {
+        background: url(./img/water.svg) no-repeat;
+        background-position-y: 25%
+      }
     </style>
   </head>
   <body>
     <div id="root" class="overflow-hidden" style="height: 100vh" @click="zoomIn()">
       <div class="overflow-hidden linear" style="height: 100vh" ref="msg" @click="zoomIn()">
-        {{ 'ha' + status}}
+        <!-- {{ 'ha' + status}} -->
       </div>
-      <div class="p-absolute" style="top: 0;bottom: 0;left: 0;right: 0">
+      <div class="p-absolute" style="top: 0;bottom: 0;left: 0;right: 0"  v-show="!status">
         <!-- 太陽 -->
         <div id="sun">
           <div class="progress">
@@ -119,8 +124,10 @@
           <div style="letter-spacing: -1px;">{{ `${half} °C` }}</div>
         </div>
       </div>
+      <!-- 水壺 -->
+      <div id="kettle" class="p-absolute" style="top: 0;bottom: 0;left: 0;right: 0" v-show="status" ref="kettle"></div>
     </div>
-    <div id="test_text"></div>
+    <!-- <div id="test_text"></div> -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="./lib/jquery-3.3.1.slim.min.js"></script>
@@ -135,7 +142,7 @@
           sun: 4.6,
           water: 50,
           half: 30,
-          status: 0,
+          status: 1,
           bg: `background: url('./img/full.svg') center bottom no-repeat,
             linear-gradient(180deg, #9cc1d1, #a8cddb, #d9f4f0, #edfbf9);};`,
         },
@@ -157,18 +164,34 @@
               ease: Bounce.easeOut,
             });
           },
+          watering(){
+            TweenMax.to(this.$refs.kettle, 1, {
+              scaleX: '1',
+              scaleY: '1',
+              transformOrigin: '0% 80%',
+              ease: Bounce.easeOut,
+            });
+          }
+        },
+        watch: {
+          status(val) {
+            if (val) this.zoomIn();
+          }
         },
         mounted() {
           window.addEventListener(
             'message',
             e => {
-              var data = JSON.parse(e.data);
-              this.sun = data.sun;
-              this.water = data.water;
-              this.half = data.half;
-              this.status = '物件：' + JSON.stringify(data);
-              document.getElementById('test_text').innerText = '物件：' + JSON.stringify(data);
-              postMessage(data);
+              try {
+                var data = JSON.parse(e.data);
+                this.sun = data.sun;
+                this.water = data.water;
+                this.half = data.half;
+                this.status = '物件：' + JSON.stringify(data);
+                document.getElementById('test_text').innerText = '物件：' + JSON.stringify(data);
+                // this.zoomIn();
+                // postMessage(data);
+              } catch (e) {}
             },
             false,
           );
