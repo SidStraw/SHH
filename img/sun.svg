@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="154" height="151" viewBox="0 0 154 151">
+  <defs>
+    <clipPath id="clip-_05">
+      <rect width="154" height="151"/>
+    </clipPath>
+  </defs>
+  <g id="_05" data-name="05" clip-path="url(#clip-_05)">
+    <circle id="Ellipse_1" data-name="Ellipse 1" cx="26.5" cy="26.5" r="26.5" transform="translate(59 50)" fill="#ffc964"/>
+    <rect id="Rectangle_307" data-name="Rectangle 307" width="15.656" height="7.828" rx="3.914" transform="translate(38.968 73.455)" fill="#ffc964"/>
+    <rect id="Rectangle_308" data-name="Rectangle 308" width="17.396" height="7.828" rx="3.914" transform="translate(89.417 106.507) rotate(90)" fill="#ffc964"/>
+    <rect id="Rectangle_313" data-name="Rectangle 313" width="17.396" height="7.828" rx="3.914" transform="translate(81.588 46.485) rotate(-90)" fill="#ffc964"/>
+    <rect id="Rectangle_309" data-name="Rectangle 309" width="17.396" height="7.828" rx="3.914" transform="matrix(0.469, 0.883, -0.883, 0.469, 104.88, 102.209)" fill="#ffc964"/>
+    <rect id="Rectangle_312" data-name="Rectangle 312" width="17.396" height="7.828" rx="3.914" transform="matrix(0.469, -0.883, 0.883, 0.469, 97.968, 47.108)" fill="#ffc964"/>
+    <rect id="Rectangle_310" data-name="Rectangle 310" width="17.396" height="7.828" rx="3.914" transform="translate(114.854 91.714) rotate(31)" fill="#ffc964"/>
+    <rect id="Rectangle_311" data-name="Rectangle 311" width="17.396" height="7.828" rx="3.914" transform="translate(110.823 54.568) rotate(-31)" fill="#ffc964"/>
+    <rect id="Rectangle_315" data-name="Rectangle 315" width="17.396" height="7.828" rx="3.914" transform="translate(89.417 106.507) rotate(90)" fill="#ffc964"/>
+    <rect id="Rectangle_316" data-name="Rectangle 316" width="17.396" height="7.828" rx="3.914" transform="translate(81.588 46.485) rotate(-90)" fill="#ffc964"/>
+    <rect id="Rectangle_317" data-name="Rectangle 317" width="17.396" height="7.828" rx="3.914" transform="matrix(-0.469, 0.883, -0.883, -0.469, 73.036, 105.884)" fill="#ffc964"/>
+    <rect id="Rectangle_318" data-name="Rectangle 318" width="17.396" height="7.828" rx="3.914" transform="matrix(-0.469, -0.883, 0.883, -0.469, 66.125, 50.784)" fill="#ffc964"/>
+    <rect id="Rectangle_319" data-name="Rectangle 319" width="17.396" height="7.828" rx="3.914" transform="translate(60.182 98.424) rotate(149)" fill="#ffc964"/>
+    <rect id="Rectangle_320" data-name="Rectangle 320" width="17.396" height="7.828" rx="3.914" transform="translate(56.15 61.278) rotate(-149)" fill="#ffc964"/>
+  </g>
+</svg>

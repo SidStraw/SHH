@@ -6,40 +6,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./lib/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/bootstrap.min.css" />
 
     <title>Hello, world!</title>
     <style>
+      body {
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .overflow-hidden {
+        overflow: hidden;
+      }
+
       .linear {
-        background: linear-gradient(180deg, #9CC1D1, #A8CDDB, #D9F4F0);
+        background: url('./img/02.svg') center bottom no-repeat,
+          linear-gradient(180deg, #9cc1d1, #a8cddb, #d9f4f0, #edfbf9);
+        background-size: contain;
+      }
+
+      .p-absolute {
+        position: absolute;
+      }
+
+      #sun {
+        background: url('./img/sun.svg') no-repeat;
+        background-size: contain;
+        background-position-x: -16px;
+        height: 9rem;
+        padding: 0 24%;
+        display: flex;
+        align-items: center;
+        position: relative;
+        top: 10%;
+      }
+
+      #sun .progress {
+        flex: 1;
+        height: 0.5rem;
+      }
+
+      #water {
+        background: url('./img/tint.svg') no-repeat;
+        background-size: contain;
+        background-position: top 0 right 5.5rem;
+        position: relative;
+        top: 7%;
+        right: 0;
+        height: 5rem;
+      }
+
+      #half {
+        background: url('./img/half.svg') no-repeat;
+        background-size: contain;
+        background-position: top 0 right 6.2rem;
+        position: relative;
+        top: 11%;
+        right: 0;
+        height: 5rem;
+      }
+
+      #water div, #half div {
+        position:absolute;
+        height: 100%;
+        right: 5%;
+        line-height: 5rem;
+        font-size: 1.7rem;
+        font-weight: bold;
+        color: #7C8597;
       }
     </style>
   </head>
   <body>
-    <div id="root" class="d-flex flex-column" style="height: 100vh">
-      <div class="linear flex-grow-1">{{message}}</div>
-      <div class="base flex-grow-0" sty></div>
+    <div id="root" class="overflow-hidden" style="height: 100vh" @click="zoomIn()">
+      <div class="overflow-hidden linear" style="height: 100vh" ref="msg" @click="zoomIn()">
+        <!-- {{message}} -->
+      </div>
+      <div class="p-absolute" style="top: 0;bottom: 0;left: 0;right: 0">
+        <!-- 太陽 -->
+        <div id="sun">
+          <div class="progress">
+            <div
+              class="progress-bar bg-warning"
+              role="progressbar"
+              style="width: 75%"
+              aria-valuenow="75"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              ref="sun_progress"
+            ></div>
+          </div>
+        </div>
+        <!-- 水量 -->
+        <div id="water">
+          <div>{{water}}</div>
+        </div>
+        <!-- 溫度 -->
+        <div id="half">
+            <div>{{water}}</div>
+          </div>
+      </div>
     </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="./lib/jquery-3.3.1.slim.min.js"></script>
     <script src="./lib/popper.min.js"></script>
     <script src="./lib/bootstrap.min.js"></script>
+    <script src="./lib/TweenMax.min.js"></script>
     <script src="./lib/vue_v2.6.10.js"></script>
     <script>
-    var vm = new Vue({
-      el: '#root',
-      data: {
-        message: '這是資料1',
-      },
-      methods: {
-      },
-      mounted() {
-        window.addEventListener('message', e => {
-          this.message += JSON.stringify(e.data);
-        }, false);
-      },
-    })
+      var vm = new Vue({
+        el: '#root',
+        data: {
+          water: `${50} %`,
+          message: '這是資料1',
+          bg: `background: url('./img/full.svg') center bottom no-repeat,
+            linear-gradient(180deg, #9cc1d1, #a8cddb, #d9f4f0, #edfbf9);};`,
+        },
+        methods: {
+          zoomIn() {
+            TweenMax.to(this.$refs.msg, 1, {
+              scaleX: '1.3',
+              scaleY: '1.3',
+              transformOrigin: '0% 80%',
+              ease: Bounce.easeOut,
+            });
+            setTimeout(this.zoomOut, 3000);
+          },
+          zoomOut() {
+            TweenMax.to(this.$refs.msg, 1, {
+              scaleX: '1',
+              scaleY: '1',
+              transformOrigin: '0% 80%',
+              ease: Bounce.easeOut,
+            });
+          },
+        },
+        mounted() {
+          window.addEventListener(
+            'message',
+            e => {
+              this.message += JSON.stringify(e.data);
+            },
+            false,
+          );
+          this.$refs.sun_progress.style = `width: ${10}%;`;
+        },
+      });
     </script>
   </body>
 </html>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="108" viewBox="0 0 48 108">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Artboard_6);
+      }
+
+      .cls-2 {
+        fill: #f2b476;
+      }
+    </style>
+    <clipPath id="clip-Artboard_6">
+      <rect width="48" height="108"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_6" data-name="Artboard – 6" class="cls-1">
+    <g id="Group_12" data-name="Group 12" transform="translate(-253 -346)">
+      <path id="thermometer-half-solid" class="cls-2" d="M24,48a8,8,0,1,1-12-6.927V28a4,4,0,0,1,8,0V41.073A8,8,0,0,1,24,48Zm4-10.582A16,16,0,0,1,16,64h-.114A16,16,0,0,1,4,37.419V12a12,12,0,1,1,24,0ZM26,48c0-4.292-2.421-6.524-4-8.313V12a6,6,0,0,0-12,0V39.688c-1.592,1.8-3.978,4.013-4,8.26A10.041,10.041,0,0,0,15.928,58H16A10.011,10.011,0,0,0,26,48Z" transform="translate(260.999 373)"/>
+    </g>
+  </g>
+</svg>
