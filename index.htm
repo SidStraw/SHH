@@ -92,7 +92,7 @@
   <body>
     <div id="root" class="overflow-hidden" style="height: 100vh" @click="zoomIn()">
       <div class="overflow-hidden linear" style="height: 100vh" ref="msg" @click="zoomIn()">
-        {{status}}
+        {{ 'ha' + status}}
       </div>
       <div class="p-absolute" style="top: 0;bottom: 0;left: 0;right: 0">
         <!-- 太陽 -->
@@ -162,12 +162,13 @@
           window.addEventListener(
             'message',
             e => {
-              this.sun = e.data.sun;
-              this.water = e.data.water;
-              this.half = e.data.half;
-              this.status = '物件：' + JSON.stringify(e.data);
-              document.getElementById('test_text').innerText = '物件：' + JSON.stringify(e.data);
-              postMessage(e.data);
+              var data = JSON.parse(e.data);
+              this.sun = data.sun;
+              this.water = data.water;
+              this.half = data.half;
+              this.status = '物件：' + JSON.stringify(data);
+              document.getElementById('test_text').innerText = '物件：' + JSON.stringify(data);
+              postMessage(data);
             },
             false,
           );
