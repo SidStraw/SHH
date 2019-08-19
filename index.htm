@@ -142,7 +142,7 @@
           sun: 4.6,
           water: 50,
           half: 30,
-          status: 1,
+          status: 0,
           bg: `background: url('./img/full.svg') center bottom no-repeat,
             linear-gradient(180deg, #9cc1d1, #a8cddb, #d9f4f0, #edfbf9);};`,
         },
@@ -163,6 +163,7 @@
               transformOrigin: '0% 80%',
               ease: Bounce.easeOut,
             });
+            this.status = 0;
           },
           watering(){
             TweenMax.to(this.$refs.kettle, 1, {
@@ -175,7 +176,9 @@
         },
         watch: {
           status(val) {
-            if (val) this.zoomIn();
+            if (val) {
+              this.zoomIn();
+            }
           }
         },
         mounted() {
